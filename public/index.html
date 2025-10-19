@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mobile Shop</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">Mobile Shop</div>
+      <button id="cartButton" class="icon-button" aria-label="Open cart" title="Cart">
+        <span class="badge" id="cartCount">0</span>
+        🛒
+      </button>
+    </header>
+
+    <main class="content">
+      <section class="search-bar">
+        <input id="searchInput" type="search" placeholder="Search accessories..." />
+      </section>
+
+      <section id="products" class="product-grid" aria-live="polite"></section>
+    </main>
+
+    <dialog id="cartDialog">
+      <form method="dialog" class="cart">
+        <header>
+          <h2>Your Cart</h2>
+          <button class="icon-button" value="close" aria-label="Close">✕</button>
+        </header>
+        <div id="cartItems" class="cart-items"></div>
+        <footer class="cart-footer">
+          <div class="total">
+            <span>Total</span>
+            <strong id="cartTotal">$0.00</strong>
+          </div>
+          <button id="checkoutButton" class="primary">Checkout</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog id="checkoutDialog">
+      <form id="checkoutForm" method="dialog" class="checkout">
+        <header>
+          <h2>Checkout</h2>
+          <button class="icon-button" value="close" aria-label="Close">✕</button>
+        </header>
+        <label>
+          <span>Name</span>
+          <input name="name" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input name="email" type="email" />
+        </label>
+        <label>
+          <span>Address</span>
+          <textarea name="address" rows="3"></textarea>
+        </label>
+        <footer class="checkout-footer">
+          <button class="secondary" value="close">Cancel</button>
+          <button class="primary" id="placeOrderButton">Place Order</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
